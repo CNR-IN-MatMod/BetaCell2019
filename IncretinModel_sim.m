@@ -20,6 +20,7 @@ addpath(genpath('model_functions'))
 %
 % Each element of the p vector correspond to a parameter in the equations
 % of the article:
+
 % p(1)--> p6 in the equation of the article
 % p(2)--> p7 in the equation of the article
 % p(3)--> p8 in the equation of the article
@@ -44,6 +45,7 @@ addpath(genpath('model_functions'))
 % p(22)--> p17 in the equation of the article
 % p(23)--> p18 in the equation of the article
 
+%%
 % The vector p_peak is held fixed
 % p_peak(1)--> p19 in the equation of the article
 % p_peak(2)--> p20 in the equation of the article
