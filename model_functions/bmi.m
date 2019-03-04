@@ -1,0 +1,1 @@
+function bmi=bmi(weight,height)% bmi=bmi(weight,height) calculates the body mass index% weight: kg; height: m or cm (scale automatically determined); bmi: kg/m^2% bmi returns a vector if weight and height are vectors% See also BSA% convert height to m if necessaryif median(height(~isnan(height)))>3    height=height/100;endbmi=weight./height.^2;
