@@ -1,6 +1,8 @@
 # Grespan-Mari's 2019 Incretin Model
 
-Code accompanying Grespan-Mari's 2019 Incretin Model.  The model is described in the paper...
+For an outline of the study, see *The different mechanisms of action of GIP and GLP-1 explain their different efficacy as therapeutic agents in type 2 diabetes*, [Diabetologia (2018) 61(Suppl 1)](https://doi.org/10.1007/s00125-018-4693-0) and [page 250, abstract #511](https://www.easd.org/virtualmeeting/home.html#!resources/the-different-mechanisms-of-action-of-gip-and-glp-1-explain-their-different-efficacy-as-therapeutic-agents-in-type-2-diabetes).
+
+This code accompanies Grespan-Mari's 2019 Incretin Model described in the paper:
 
 > E. Grespan, T. Giorgino, A. Natali, E. Ferrannini, A. Mari. *Different mechanisms of GIP
 > and GLP-1 action explain their different therapeutic efficacy in type 2 diabetes*. (Preprint)
