@@ -24,16 +24,16 @@ incorporating the effect of the GIP and GLP-1 incretins.
 
 ## Results
 
-Using the model, we determined Kincr using data from eight in vivo published studies involving GIP and GLP-1 infusion or endogenous stimulation, in subjects with normal glucose tolerance and type 2 diabetes. We could thus reassess the GIP and GLP-1 effects from heterogeneous studies using a unifying method.  One reaches two main conclusions: 
+We determined Kincr using data from eight in vivo published studies involving GIP and GLP-1 infusion or endogenous stimulation, in subjects with normal glucose tolerance and type 2 diabetes. We could thus reassess the GIP and GLP-1 effects from heterogeneous studies using a unifying method.  One reaches two main conclusions: 
 
-a. GIP action in type 2 diabetes is impaired (by ~50%) but not abolished, as often postulated; 
-b. the lack of efficacy of GIP at pharmacological doses in type 2 diabetes is not due GIP insensitivity but to the mechanism of GIP action, which, in contrast to GLP-1, presents a saturation already in the upper physiological range, even in healthy subjects.
-
-
+ 1. GIP action in type 2 diabetes is impaired (by ~50%) but not abolished, as often postulated; and
+ 2. the lack of efficacy of GIP at pharmacological doses in type 2 diabetes is not due GIP insensitivity but to the mechanism of GIP action, which, in contrast to GLP-1, presents a saturation already in the upper physiological range, even in healthy subjects.
 
 
 
-## Output preview
+
+
+# Output and preview
 
 This code reproduces the paper's figures via Matlab's "publish" feature,
 which renders an HTML file with inline comments and figures (tested in Matlab 2015b). The
