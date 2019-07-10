@@ -20,7 +20,6 @@ addpath(genpath('model_functions'))
 %
 % Each element of the p vector correspond to a parameter in the equations
 % of the article:
-
 % p(1)--> p6 in the equation of the article
 % p(2)--> p7 in the equation of the article
 % p(3)--> p8 in the equation of the article
@@ -45,7 +44,6 @@ addpath(genpath('model_functions'))
 % p(22)--> p17 in the equation of the article
 % p(23)--> p18 in the equation of the article
 
-%%
 % The vector p_peak is held fixed
 % p_peak(1)--> p19 in the equation of the article
 % p_peak(2)--> p20 in the equation of the article
@@ -812,6 +810,175 @@ legend('data','model')
 
 
 
+%% - Study B5: hiperglycemic clamp (HGC) with saline, GIP or GLP-1 infusion - NGT subjects
+%
+% Data from Knop et al., 2007
+clear all
+close all
+clc
+
+% load data
+load Knop/Knop_NGT
+
+% Simulate calcium - saline infusion
+pca=[p_peak;p(17:23)];% calcium parameter
+camod=casim(glu,pca);
+% Simulate calcium - GIP infusion (8 pmol/kg/min), GLP1 infusion  (1 pmol/kg/min)
+camod_IE=struct('t',{},'v',{});
+for k=1:2
+    camod_IE(k).t=camod.t;
+    camod_IE(k).v=camod.v+ca_transient.v;
+end
+
+% Simulate secretion - saline infusion
+secmod=secsim_IE(p,camod,glu,Kglu);% Kglu is the potentiating ...
+% effect of glucose during HGC, independent from the incretin effect but that affects the ..
+% refilling as the incretin effect
+
+% Simulate secretion with the contribution of the incretin effect
+% GIP infusion (8 pmol/kg/min), GLP1 infusion  (1 pmol/kg/min)
+Kincr_glu=struct('t',{},'v',{});
+for k=1:2
+    Kincr_glu(k).t=Kincr(k).t;
+    Kincr_glu(k).v=Kincr(k).v.*Kglu.v; 
+end     % Kglu is the potentiating ...
+% effect of glucose during HGC, independent from the incretin effect but that affects the ..
+% refilling as the incretin effect
+secmod_IE=struct('t',{},'v',{});
+for k=1:2
+    secmod_IE(k)=secsim_IE(p,camod_IE(k),glu,Kincr_glu(k));
+end
+
+
+% Calculate cpeptide 
+[pcp,~,~]=vancau('ND','M',age,weight,height); 
+
+% cpeptide - saline infusion
+cpepmod=cpepsim(pcp,glu.t,secmod);
+% cpeptide - GIP infusion (8 pmol/kg/min), GLP1 infusion  (1 pmol/kg/min)
+cpepmod_IE=struct('t',{},'v',{});
+for k=1:2
+    cpepmod_IE(k)=cpepsim(pcp,glu.t,secmod_IE(k)); 
+end
+
+% Plot glucose, calcium, Kincr, secretion
+
+figure()
+subplot(4,1,1)
+plot(glu.t,glu.v,'k')
+setAxes(-10, 110, 4, '', 5, 20, 4, 'G (mmol/L)') % generate the figure with the proper layout
+subplot(4,1,2)
+plot(camod.t,camod.v,'k',camod_IE(1).t,camod_IE(1).v,'b',camod_IE(2).t,camod_IE(2).v,'r')
+setAxes(-10, 110, 4, '', 50, 350, 4, 'C (nmol/L)')  % generate the figure with the proper layout
+subplot(4,1,3)
+plot(glu.t,ones(1,numel(glu.t)),'k',Kincr(1).t,Kincr(1).v,'b',Kincr(2).t,Kincr(2).v,'r') 
+setAxes(-10, 110, 4, '', 1, 4, 4, 'Kincr') % generate the figure with the proper layout
+subplot(4,1,4)
+plot(secmod.t,secmod.v/BSA,'k',secmod_IE(1).t,secmod_IE(1).v/BSA,'b',secmod_IE(2).t,secmod_IE(2).v/BSA,'r') %  model secretion needs to be normalized to body surface
+setAxes(-10, 110, 4, 'Time', ...
+    0, 1500, 4, 'S (pmol Kg min^{-1})') % generate the figure with the proper layout
+legend('saline model','GIP model','GLP-1 model');
+title('NGT')
+
+
+%plot cpeptide
+figure()
+set(gcf,'position', [250 250 400 400]) 
+pl=plot(cpep(1).t,cpep(1).v,'--k',cpepmod.t,cpepmod.v,'k',...
+    cpep(2).t,cpep(2).v,'--b',cpepmod_IE(1).t,cpepmod_IE(1).v,'b',...
+    cpep(3).t,cpep(3).v,'--r',cpepmod_IE(2).t,cpepmod_IE(2).v,'r');
+xlabel('Time (min)','FontSize',16)
+ylabel('C-peptide (pmol/L)','FontSize',16)
+xlim([-10 120])
+h=legend('saline data','saline model','GIP data','GIP model','GLP-1 data','GLP-1 model');
+set(h,'Location','northwest')
+title('NGT')
+
+
+
+%% - Study B5: hiperglycemic clamp (HGC) with saline, GIP or GLP-1 infusion - T2D subjects
+%
+% Data from Knop et al., 2007
+clear all
+close all
+clc
+
+% load data
+load Knop/Knop_T2D
+
+% Simulate calcium - saline infusion
+pca=[p_peak;p(17:23)];% calcium parameter
+camod=casim(glu,pca);
+% Simulate calcium - GIP infusion (8 pmol/kg/min), GLP1 infusion  (1 pmol/kg/min)
+camod_IE=struct('t',{},'v',{});
+for k=1:2
+    camod_IE(k).t=camod.t;
+    camod_IE(k).v=camod.v+ca_transient.v;
+end
+
+% Simulate secretion - saline infusion
+secmod=secsim_IE(p,camod,glu,Kglu);% Kglu is the potentiating ...
+% effect of glucose during HGC, independent from the incretin effect but that affects the ..
+% refilling as the incretin effect
+
+% Simulate secretion with the contribution of the incretin effect
+% GIP infusion (8 pmol/kg/min), GLP1 infusion  (1 pmol/kg/min)
+Kincr_glu=struct('t',{},'v',{});
+for k=1:2
+    Kincr_glu(k).t=Kincr(k).t;
+    Kincr_glu(k).v=Kincr(k).v.*Kglu.v; 
+end     % Kglu is the potentiating ...
+% effect of glucose during HGC, independent from the incretin effect but that affects the ..
+% refilling as the incretin effect
+secmod_IE=struct('t',{},'v',{});
+for k=1:2
+    secmod_IE(k)=secsim_IE(p,camod_IE(k),glu,Kincr_glu(k));
+end
+
+% Calculate cpeptide 
+[pcp,~,~]=vancau('T2D','M',age,weight,height); 
+
+% cpeptide - saline infusion
+cpepmod=cpepsim(pcp,glu.t,secmod);
+% cpeptide - GIP infusion (8 pmol/kg/min), GLP1 infusion  (1 pmol/kg/min)
+cpepmod_IE=struct('t',{},'v',{});
+for k=1:2
+    cpepmod_IE(k)=cpepsim(pcp,glu.t,secmod_IE(k)); 
+end
+
+
+% Plot glucose, calcium, Kincr, secretion
+
+figure()
+subplot(4,1,1)
+plot(glu.t,glu.v,'k')
+setAxes(-10, 110, 4, '', 5, 20, 4, 'G (mmol/L)') % generate the figure with the proper layout
+subplot(4,1,2)
+plot(camod.t,camod.v,'k',camod_IE(1).t,camod_IE(1).v,'b',camod_IE(2).t,camod_IE(2).v,'r')
+setAxes(-10, 110, 4, '', 50, 350, 4, 'C (nmol/L)')  % generate the figure with the proper layout
+subplot(4,1,3)
+plot(glu.t,ones(1,numel(glu.t)),'k',Kincr(1).t,Kincr(1).v,'b',Kincr(2).t,Kincr(2).v,'r') 
+setAxes(-10, 110, 4, '', 1, 4, 4, 'Kincr') % generate the figure with the proper layout
+subplot(4,1,4)
+plot(secmod.t,secmod.v/BSA,'k',secmod_IE(1).t,secmod_IE(1).v/BSA,'b',secmod_IE(2).t,secmod_IE(2).v/BSA,'r') %  model secretion needs to be normalized to body surface
+setAxes(-10, 110, 4, 'Time', ...
+    0, 1500, 4, 'S (pmol Kg min^{-1})') % generate the figure with the proper layout
+legend('saline model','GIP model','GLP-1 model');
+title('T2D')
+
+
+%plot cpeptide
+figure()
+set(gcf,'position', [250 250 400 400]) 
+pl=plot(cpep(1).t,cpep(1).v,'--k',cpepmod.t,cpepmod.v,'k',...
+    cpep(2).t,cpep(2).v,'--b',cpepmod_IE(1).t,cpepmod_IE(1).v,'b',...
+    cpep(3).t,cpep(3).v,'--r',cpepmod_IE(2).t,cpepmod_IE(2).v,'r');
+xlabel('Time (min)','FontSize',16)
+ylabel('C-peptide (pmol/L)','FontSize',16)
+xlim([-10 120])
+h=legend('saline data','saline model','GIP data','GIP model','GLP-1 data','GLP-1 model');
+set(h,'Location','northwest')
+title('T2D')
 
 
 %% - Study C1: glucose ramp with saline infusion or GLP1 infusion at different doses - NGT subjects
@@ -1052,91 +1219,169 @@ setAxes(-30, 220, 6, 'Time (min)', ...
 legend('GIP data','GIP model','GLP1 data','GLP1 model','GIP and GLP1 data','GIP and GLP1 model')
 
 
-
-%% Data analysis
+%% - Study D2: OGTT and Intravenous glucose infusion simulating an OGTT with saline, GIP or GLP1 infusion - T2D subjects
 %
-% For each test we created a vector containing 6 elements:
-% - element 1 of the vector: GIP or GLP1 infusion rate (pmol/kg/min)
-% - element 2 of the vector GIP or GLP1 basal concentration (pmol/L) - total GIP or GLP1
-% - element 3 of the vector: AUC Kincr
-% - element 4 of the vector: AUC calcium transient due to the incretin effect (nmol/L)
-% - element 5 of the vector: AUC glu during the incretins stimulus (mmol/L)
-% - element 6 of the vecotr: AUC of GIP or GLP1 concentration (pmol/L) - total GIP or GLP1
-% The vectors are saved in the file analysis_all_tests
+% Data from Lund et al., 2011
+clear all
+close all
+clc
+
+% load data
+load Lund/Lund
 
 
-% Element 2 and element 6 of the vectors referring to Nauck JCI and Nauck
-% JCEM studies are already rescaled as described in the methods part of the
-% article of Grespan et al. 2019
+% Simulate calcium - OGTT IV
+pca=[p_peak;p(17:23)];% calcium parameter
+camod=casim(glu(1),pca);
+% Simulate calcium - OGTT,OGTT IV + GIP infusion, GLP1 infusion, GIP and GLP1 infusion 
+camod_IE=struct('t',{},'v',{});
+catmp=struct('t',{},'v',{});
+for k=1:3
+    catmp(k)=casim(glu(k+1),pca);
+    camod_IE(k).t=catmp(k).t;
+    camod_IE(k).v=catmp(k).v+ca_transient(k).v;
+end
+
+% Simulate secretion - OGTT IV
+secmod=secsim(p,camod,glu(1));
+
+% Simulate secretion - OGTT, OGTT IV + GIP infusion, GLP1 infusion, GIP and GLP1 infusion 
+secmod_IE=struct('t',{},'v',{});
+for k=1:3
+    secmod_IE(k)=secsim_IE(p(:,1),camod_IE(k),glu(k+1),Kincr(k));
+end
+
+
+% Calculate cpeptide 
+[pcp,~,~]=vancau('T2D','F',age,weight,height); 
+
+% cpeptide - OGTT IV
+cpepmod=cpepsim(pcp,glu(1).t,secmod);
+% cpeptide - OGTT and OGTT IV + GIP infusion, GLP1 infusion, GIPA and GLP1 infusion 
+cpepmod_IE=struct('t',{},'v',{});
+for k=1:3
+    cpepmod_IE(k)=cpepsim(pcp,glu(k+1).t,secmod_IE(k)); 
+end
+%%
+% Plot glucose, calcium, Kincr, secretion - OGTT-like
+
+
+subplot(4,1,1)
+plot(glu(1).t,glu(1).v,'k')
+setAxes(-10, 170, 7, '', 5, 20, 3, 'G (mmol/L)') % generate the figure with the proper layout
+title('OGTT like')
+subplot(4,1,2)
+plot(camod.t,camod.v,'k')
+setAxes(-10, 170, 7, '', 100, 300, 3, 'C (nmol/L)')  % generate the figure with the proper layout
+subplot(4,1,3)
+plot(glu(1).t,ones(1,numel(glu(1).t)),'k')
+setAxes(-10, 170, 7, '', 0.5, 1.5, 3, 'Kincr') % generate the figure with the proper layout
+subplot(4,1,4)
+plot(secmod.t,secmod.v/BSA,'k') %  model secretion needs to be normalized to body surface
+setAxes(-10, 170, 7, 'Time (min)', ...
+    50, 350, 3, 'S (pmol Kg min^{-1})') % generate the figure with the proper layout
+
+titles={'OGTT' 'GIP infusion' 'GLP-1 infusion'};
+ 
+
+figure()
+for k=1:3
+subplot(4,1,1)
+plot(glu(k+1).t,glu(k+1).v,'k')
+setAxes(-10, 170, 7, '', 5, 20, 3, 'G (mmol/L)') % generate the figure with the proper layout
+title(sprintf(titles{k}))
+subplot(4,1,2)
+plot(camod_IE(k).t,camod_IE(k).v,'k')
+setAxes(-10, 170, 7, '', 50, 450, 5, 'C (nmol/L)')  % generate the figure with the proper layout
+subplot(4,1,3)
+plot(Kincr(k).t,Kincr(k).v,'k') 
+setAxes(-10, 170, 7, '', 1, 1.2, 3, 'Kincr') % generate the figure with the proper layout
+subplot(4,1,4)
+plot(secmod_IE(k).t,secmod_IE(k).v/BSA,'k') %  model secretion needs to be normalized to body surface
+setAxes(-10, 170, 7, 'Time (min)', ...
+    0, 800, 5, 'S (pmol Kg min^{-1})') % generate the figure with the proper layout
+end   
+
+% Plot cpeptide
+figure()
+plot(cpep(1).t,cpep(1).v,'--k',cpepmod.t,cpepmod.v,'k',...
+    cpep(2).t,cpep(2).v,'--g',cpepmod_IE(1).t,cpepmod_IE(1).v,'-g');
+setAxes(-10, 170, 7, 'Time (min)', ...
+    0, 3000, 5, 'C-peptide (pmol/L)') % generate the figure with the proper layout
+legend('OGTT IV data','OGTT IV model','OGTT data','OGTT model')
+
+
+figure()
+plot(cpep(3).t,cpep(3).v,'--b',cpepmod_IE(2).t,cpepmod_IE(2).v,'b',...
+    cpep(4).t,cpep(4).v,'--r',cpepmod_IE(3).t,cpepmod_IE(3).v,'-r');
+setAxes(-10, 170, 7, 'Time (min)', ...
+    0, 3000, 5, 'C-peptide (pmol/L)') % generate the figure with the proper layout
+legend('GIP data','GIP model','GLP1 data','GLP1 model','GIP and GLP1 data','GIP and GLP1 model')
+
+
+%% Plot hormone concentration-Kincr relationships
 
 clear all
 close all
 clc
-load analysis_all_tests
 
-
-
-% plot GIP and GLP1 concentration vs Kincr calculated by the model for all
-% the diffferent tests
 load Kincrmod
+lg=[0 190/255 0];
+dg=[0 90/255 0];
 
+GIP_data=xlsread('GIP_data.xlsx');
+GLP1_data=xlsread('GLP1_data.xlsx');
+data.GIP_total=GIP_data(:,3);
+data.Kincr_GIP=GIP_data(:,4);
+data.GLP_1_total=GLP1_data(:,3);
+data.Kincr_GLP1=GLP1_data(:,4);
+
+
+% plot GIP NGT
 figure()
-subplot(1,2,1) 
-p1=plot(test_GIP_NGT_Meier(:,6),test_GIP_NGT_Meier(:,3),'ob',...
-    test_GIP_NGT_Honka(:,6),test_GIP_NGT_Honka(:,3),'sb',...
-    test_GIP_NGT_Hojberg(:,6),test_GIP_NGT_Hojberg(:,3),'^b',...
-    test_GIP_NGT_Vilsboll(:,6),test_GIP_NGT_Vilsboll(:,3),'*b',...
-    test_GIP_NGT_NauckJCI(:,6),test_GIP_NGT_NauckJCI(:,3),'xb',...
-    test_GIP_NGT_NauckJCEM(:,6),test_GIP_NGT_NauckJCEM(:,3),'+b',...
-    test_GIP_GIPANDGLP1_NGT_NauckJCEM(:,6),test_GIP_GIPANDGLP1_NGT_NauckJCEM(:,3),'+b',...
-    Kincrmod_GIP_NGT(1).t,Kincrmod_GIP_NGT(1).v,'-b',...
-    test_GLP1_NGT_Honka(:,6),test_GLP1_NGT_Honka(:,3),'sr',...
-    test_GLP1_NGT_Kjems(:,6),test_GLP1_NGT_Kjems(:,3),'dr',...
-    test_GLP1_NGT_Hojberg(:,6),test_GLP1_NGT_Hojberg(:,3),'^r',...
-    test_GLP1_NGT_NauckJCI(:,6),test_GLP1_NGT_NauckJCI(:,3),'xr',...
-    test_GLP1_NGT_NauckJCEM(:,6),test_GLP1_NGT_NauckJCEM(:,3),'+r',...
-    test_GLP1_GIPANDGLP1_NGT_NauckJCEM(:,6),test_GLP1_GIPANDGLP1_NGT_NauckJCEM(:,3),'+r',...
-    Kincrmod_GLP1_NGT(1).t,Kincrmod_GLP1_NGT(1).v,'-r');  
-xlim([0 500])
-ylim([1 10])
-xlabel('Total hormone concentration (pmol/L)')
-ylabel('Incretin potentiation of ISR (k_{incr})')
-set(p1,'linewidth',2)
-set(gca,'FontSize',14)
-title('NGT')
+subplot(1,2,1)
+plot(data.GIP_total(1:2),data.Kincr_GIP(1:2),'o','Color',dg,'Linewidth',2)
+hold on
+plot(data.GIP_total(6),data.Kincr_GIP(6),'*','Color',dg,'Linewidth',2)
+plot(data.GIP_total(9),data.Kincr_GIP(9),'s','Color',dg,'Linewidth',2)
+plot(data.GIP_total(10),data.Kincr_GIP(9),'>','Color',dg,'Linewidth',2)
+plot(data.GIP_total(12:13)/5,data.Kincr_GIP(12:13),'x','Color',dg,'Linewidth',2) % hormone concantration normalized (Figure S3)
+plot(data.GIP_total(16:17)/5,data.Kincr_GIP(16:17),'+','Color',dg,'Linewidth',2) % hormone concantration normalized (Figure S3)
+plot(Kincr_GIP_NGT.t,Kincr_GIP_NGT.v,'Color',dg,'Linewidth',2)
 
+% plot GLP1 NGT
+plot(data.GLP_1_total(3:5),data.Kincr_GLP1(3:5),'d','Color',lg,'LineWidth',2)
+plot(data.GLP_1_total(9),data.Kincr_GLP1(9),'>','Color',lg,'LineWidth',2)
+plot(data.GLP_1_total(11:12)/2.5,data.Kincr_GLP1(11:12),'x','Color',lg,'LineWidth',2) % hormone concantration normalized (Figure S3)
+plot(data.GLP_1_total(15:16)/2.5,data.Kincr_GLP1(15:16),'+','Color',lg,'LineWidth',2) % hormone concantration normalized (Figure S3)
+plot(data.GLP_1_total(17),data.Kincr_GLP1(17),'s','Color',lg,'LineWidth',2)
+plot(Kincr_GLP1_NGT.t,Kincr_GLP1_NGT.v,'Color',lg,'LineWidth',2);
+hold off
+xlim([0 1000])
+ylim([1 10])
+hold off
+xlabel('Hormone concentration (pmol/L)')
+ylabel('Kincr')
+
+% plot GIP T2D
 subplot(1,2,2)
-p1=plot(test_GIP_T2D_Mentis(:,6),test_GIP_T2D_Mentis(:,3),'vb',...
-    test_GIP_T2D_Meier(:,6),test_GIP_T2D_Meier(:,3),'ob',...
-    test_GIP_T2Dpre_Hojberg(:,6),test_GIP_T2Dpre_Hojberg(:,3),'^b',...
-    test_GIP_T2D_Vilsboll(:,6),test_GIP_T2D_Vilsboll(:,3),'*b',...
-    test_GIP_T2D_NauckJCI(:,6),test_GIP_T2D_NauckJCI(:,3),'xb',...
-    Kincrmod_GIP_T2D.t,Kincrmod_GIP_T2D.v,'-b',...
-    test_GLP1_T2D_Mentis(:,6),test_GLP1_T2D_Mentis(:,3),'vr',...
-    test_GLP1_T2D_Kjems(:,6),test_GLP1_T2D_Kjems(:,3),'dr',...
-    test_GLP1_T2Dpre_Hojberg(:,6),test_GLP1_T2Dpre_Hojberg(:,3),'^r',...
-    test_GLP1_T2D_Vilsboll(:,6),test_GLP1_T2D_Vilsboll(:,3),'*r',...
-    test_GLP1_T2D_NauckJCI(:,6),test_GLP1_T2D_NauckJCI(:,3),'xr',...
-    Kincrmod_GLP1_T2D.t,Kincrmod_GLP1_T2D.v,'-r'); 
-xlim([0 500])
+plot(data.GIP_total(3:4),data.Kincr_GIP(3:4),'o','Color',dg,'LineWidth',2)
+hold on
+plot(data.GIP_total(5),data.Kincr_GIP(5),'v','Color',dg,'LineWidth',2)
+plot(data.GIP_total(7:8),data.Kincr_GIP(7:8),'*','Color',dg,'LineWidth',2)
+plot(data.GIP_total(11),data.Kincr_GIP(11),'>','Color',dg,'LineWidth',2)
+plot(data.GIP_total(14:15)/5,data.Kincr_GIP(14:15),'x','Color',dg,'LineWidth',2) % hormone concantration normalized (Figure S3)
+plot(Kincr_GIP_T2D.t,Kincr_GIP_T2D.v,'Color',dg,'LineWidth',2)
+
+% plot GLP1 T2D
+plot(data.GLP_1_total(1),data.Kincr_GLP1(1),'v','Color',lg,'LineWidth',2)
+plot(data.GLP_1_total(2),data.Kincr_GLP1(2),'*','Color',lg,'LineWidth',2)
+plot(data.GLP_1_total(6:8),data.Kincr_GLP1(6:8),'d','Color',lg,'LineWidth',2)
+plot(data.GLP_1_total(10),data.Kincr_GLP1(10),'>','Color',lg,'LineWidth',2)
+plot(data.GLP_1_total(13:14)/2.5,data.Kincr_GLP1(13:14),'x','Color',lg,'LineWidth',2) % hormone concantration normalized (Figure S3)
+plot(Kincr_GLP1_T2D.t,Kincr_GLP1_T2D.v,'Color',lg,'LineWidth',2)
+hold off
+xlim([0 1000])
 ylim([1 10])
-%set(gca,'xTick',[0 1 2 3 4 8 12 16])
-xlabel('Total hormone concentration (pmol/L)')
-ylabel('Incretin potentiation of ISR (k_{incr})')
-set(p1,'linewidth',2)
-set(gca,'FontSize',14)
-title('T2D')
-
-
-
-% plot hormone-Kincr relationship used to simulate Study D1
-figure()
-p1=plot(Kincrmod_GIP_NGT(2).t,Kincrmod_GIP_NGT(2).v,'-b',...
-    Kincrmod_GLP1_NGT(2).t,Kincrmod_GLP1_NGT(2).v,'-r');
-xlim([0 400])
-ylim([1 10])
-xlabel('Total hormone concentration (pmol/L)')
-ylabel('Incretin potentiation of ISR (k_{incr})')
-set(p1,'linewidth',2)
-set(gca,'FontSize',14)
-title('NGT')
+xlabel('Hormone concentration (pmol/L)')
+ylabel('Kincr')
