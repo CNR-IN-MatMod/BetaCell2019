@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>Code for the beta-cell insulin secretion model incorporating the incretin effect</title><meta name="generator" content="MATLAB 8.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-07-10"><meta name="DC.source" content="IncretinModel_sim.m"><style type="text/css">
+      --><title>Code for the beta-cell insulin secretion model incorporating the incretin effect</title><meta name="generator" content="MATLAB 8.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-08-07"><meta name="DC.source" content="IncretinModel_sim.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -117,14 +117,14 @@ setAxes(-10, 80, 10, <span class="string">'Time (min)'</span>, <span class="keyw
     0, 300, 3, <span class="string">'S (pmol min^{-1}m^{-2})'</span>) <span class="comment">% generate the figure with the proper layout</span>
 legend(<span class="string">'GIP data'</span>,<span class="string">'GIP model'</span>,<span class="string">'GLP-1 data'</span>,<span class="string">'GLP-1 model'</span>)
 </pre><pre class="codeoutput">Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
-</pre><img vspace="5" hspace="5" src="IncretinModel_sim_01.png" style="width:560px;height:420px;" alt=""> <h2>- Study A2: saline, GIP or GLP1 infusion at basal glucose - T2D subjects<a name="4"></a></h2><p>Data from Mentis et al., 2010</p><pre class="codeinput">clear <span class="string">all</span>
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
+</pre><img vspace="5" hspace="5" src="IncretinModel_sim_01.png" alt=""> <h2>- Study A2: saline, GIP or GLP1 infusion at basal glucose - T2D subjects<a name="4"></a></h2><p>Data from Mentis et al., 2010</p><pre class="codeinput">clear <span class="string">all</span>
 close <span class="string">all</span>
 clc
 
@@ -209,18 +209,18 @@ setAxes(0, 360, 7, <span class="string">'Time (min)'</span>, <span class="keywor
     800, 1800, 6, <span class="string">'C-peptide (pmol/L)'</span>) <span class="comment">% generate the figure with the proper layout</span>
 legend(<span class="string">'saline data'</span>,<span class="string">'saline model'</span>,<span class="string">'GIP data'</span>,<span class="string">'GIP model'</span>,<span class="string">'GLP1 data'</span>,<span class="string">'GLP1 model'</span>)
 </pre><pre class="codeoutput">Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
-</pre><img vspace="5" hspace="5" src="IncretinModel_sim_02.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_03.png" style="width:560px;height:420px;" alt=""> <h2>- Study B1: hiperglycemic clamp (HGC) with saline, GIP infusion or GLP1 infusion at different doses - NGT subjects<a name="5"></a></h2><p>Data from Nauck et al., JCI 1993</p><pre class="codeinput">clear <span class="string">all</span>
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
+</pre><img vspace="5" hspace="5" src="IncretinModel_sim_02.png" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_03.png" alt=""> <h2>- Study B1: hiperglycemic clamp (HGC) with saline, GIP infusion or GLP1 infusion at different doses - NGT subjects<a name="5"></a></h2><p>Data from Nauck et al., JCI 1993</p><pre class="codeinput">clear <span class="string">all</span>
 close <span class="string">all</span>
 clc
 
@@ -299,18 +299,18 @@ setAxes(-30, 120, 6, <span class="string">'Time (min)'</span>, <span class="keyw
     0, 8000, 5, <span class="string">'C-peptide (pmol/L)'</span>) <span class="comment">% generate the figure with the proper layout</span>
 legend(<span class="string">'saline data'</span>,<span class="string">'saline model'</span>,<span class="string">'GIP data'</span>,<span class="string">'GIP model'</span>,<span class="string">'GLP1 data'</span>,<span class="string">'GLP1 model'</span>)
 </pre><pre class="codeoutput">Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
-</pre><img vspace="5" hspace="5" src="IncretinModel_sim_04.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_05.png" style="width:560px;height:420px;" alt=""> <h2>- Study B1: hiperglycemic clamp (HGC) with saline, GIP infusion or GLP1 infusion at different doses - T2D subjects<a name="6"></a></h2><p>Data from Nauck et al., JCI 1993</p><pre class="codeinput">clear <span class="string">all</span>
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
+</pre><img vspace="5" hspace="5" src="IncretinModel_sim_04.png" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_05.png" alt=""> <h2>- Study B1: hiperglycemic clamp (HGC) with saline, GIP infusion or GLP1 infusion at different doses - T2D subjects<a name="6"></a></h2><p>Data from Nauck et al., JCI 1993</p><pre class="codeinput">clear <span class="string">all</span>
 close <span class="string">all</span>
 clc
 
@@ -388,18 +388,18 @@ setAxes(-30, 120, 6, <span class="string">'Time (min)'</span>, <span class="keyw
     0, 8000, 5, <span class="string">'C-peptide (pmol/L)'</span>) <span class="comment">% generate the figure with the proper layout</span>
 legend(<span class="string">'saline data'</span>,<span class="string">'saline model'</span>,<span class="string">'GIP data'</span>,<span class="string">'GIP model'</span>,<span class="string">'GLP1 data'</span>,<span class="string">'GLP1 model'</span>)
 </pre><pre class="codeoutput">Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
-</pre><img vspace="5" hspace="5" src="IncretinModel_sim_06.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_07.png" style="width:560px;height:420px;" alt=""> <h2>- Study B2: hyperglicaemic clamp (HGC) with saline, GIP or GLP1 infusion - NGT subjects<a name="7"></a></h2><p>Data from Hojberg et al., 2009</p><pre class="codeinput">clear <span class="string">all</span>
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
+</pre><img vspace="5" hspace="5" src="IncretinModel_sim_06.png" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_07.png" alt=""> <h2>- Study B2: hyperglicaemic clamp (HGC) with saline, GIP or GLP1 infusion - NGT subjects<a name="7"></a></h2><p>Data from Hojberg et al., 2009</p><pre class="codeinput">clear <span class="string">all</span>
 close <span class="string">all</span>
 clc
 
@@ -466,18 +466,18 @@ cpepmod_NGT(1)=cpepmod;
 cpepmod_NGT(2)=cpepmod_IE(1);
 cpepmod_NGT(3)=cpepmod_IE(2);
 </pre><pre class="codeoutput">Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
-</pre><img vspace="5" hspace="5" src="IncretinModel_sim_08.png" style="width:560px;height:420px;" alt=""> <h2>- Study B2: hyperglicaemic clamp (HGC) with saline, GIP or GLP1 infusion - T2D subjects (pre glucose normalization)<a name="8"></a></h2><p>Data from Hojberg et al., 2009</p><pre class="codeinput"><span class="comment">%clear all</span>
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
+</pre><img vspace="5" hspace="5" src="IncretinModel_sim_08.png" alt=""> <h2>- Study B2: hyperglicaemic clamp (HGC) with saline, GIP or GLP1 infusion - T2D subjects (pre glucose normalization)<a name="8"></a></h2><p>Data from Hojberg et al., 2009</p><pre class="codeinput"><span class="comment">%clear all</span>
 close <span class="string">all</span>
 clc
 
@@ -544,18 +544,18 @@ cpepmod_T2Dpre(1)=cpepmod;
 cpepmod_T2Dpre(2)=cpepmod_IE(1);
 cpepmod_T2Dpre(3)=cpepmod_IE(2);
 </pre><pre class="codeoutput">Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
-</pre><img vspace="5" hspace="5" src="IncretinModel_sim_09.png" style="width:560px;height:420px;" alt=""> <h2>- Study B2: plot cpeptide<a name="9"></a></h2><pre class="codeinput">figure()
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
+</pre><img vspace="5" hspace="5" src="IncretinModel_sim_09.png" alt=""> <h2>- Study B2: plot cpeptide<a name="9"></a></h2><pre class="codeinput">figure()
 set(gcf,<span class="string">'position'</span>, [250 250 800 400])
 subplot(1,3,1)
 <span class="comment">%Plot cpeptide - saline infusion in NGT and T2D pre glucose normalization</span>
@@ -576,7 +576,7 @@ plot(cpep_NGT(3).t,cpep_NGT(3).v,<span class="string">'--k'</span>,cpepmod_NGT(3
 setAxes(-15, 105, 9, <span class="string">'Time(min)'</span>, 0, 12000, 7, <span class="string">''</span>) <span class="comment">% generate the figure with the proper layout</span>
 title(<span class="string">'GLP1'</span>)
 legend(<span class="string">'NGT data'</span>,<span class="string">'NGT model'</span>,<span class="string">'T2D data'</span>,<span class="string">'T2D model'</span>)
-</pre><img vspace="5" hspace="5" src="IncretinModel_sim_10.png" style="width:800px;height:400px;" alt=""> <h2>- Study B3: hiperglycemic clamp (HGC) with saline or GIP infusion - NGT subjects<a name="10"></a></h2><p>Data from Vilsboll et al., 2002</p><pre class="codeinput">clear <span class="string">all</span>
+</pre><img vspace="5" hspace="5" src="IncretinModel_sim_10.png" alt=""> <h2>- Study B3: hiperglycemic clamp (HGC) with saline or GIP infusion - NGT subjects<a name="10"></a></h2><p>Data from Vilsboll et al., 2002</p><pre class="codeinput">clear <span class="string">all</span>
 close <span class="string">all</span>
 clc
 
@@ -647,14 +647,14 @@ h=legend(<span class="string">'saline data'</span>,<span class="string">'saline 
 set(h,<span class="string">'Location'</span>,<span class="string">'northwest'</span>)
 title(<span class="string">'NGT'</span>)
 </pre><pre class="codeoutput">Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
-</pre><img vspace="5" hspace="5" src="IncretinModel_sim_11.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_12.png" style="width:400px;height:400px;" alt=""> <h2>- Study B3: hiperglycemic clamp (HGC) with saline, GIP infusion at different doses or GLP1 infusion - T2D subjects<a name="11"></a></h2><p>Data from Vilsboll et al., 2002</p><pre class="codeinput">clear <span class="string">all</span>
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
+</pre><img vspace="5" hspace="5" src="IncretinModel_sim_11.png" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_12.png" alt=""> <h2>- Study B3: hiperglycemic clamp (HGC) with saline, GIP infusion at different doses or GLP1 infusion - T2D subjects<a name="11"></a></h2><p>Data from Vilsboll et al., 2002</p><pre class="codeinput">clear <span class="string">all</span>
 close <span class="string">all</span>
 clc
 
@@ -743,22 +743,22 @@ h=legend(<span class="string">'saline data'</span>,<span class="string">'saline 
 set(h,<span class="string">'Location'</span>,<span class="string">'northwest'</span>)
 title(<span class="string">'T2D'</span>)
 </pre><pre class="codeoutput">Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
-</pre><img vspace="5" hspace="5" src="IncretinModel_sim_13.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_14.png" style="width:400px;height:400px;" alt=""> <h2>- Study B4: hyperglicaemic clamp (HGC) with boluses and infusion of GIP at different doses - NGT subjects<a name="12"></a></h2><p>Data from Meier et al., 2004;</p><pre class="codeinput">clear <span class="string">all</span>
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
+</pre><img vspace="5" hspace="5" src="IncretinModel_sim_13.png" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_14.png" alt=""> <h2>- Study B4: hyperglicaemic clamp (HGC) with boluses and infusion of GIP at different doses - NGT subjects<a name="12"></a></h2><p>Data from Meier et al., 2004;</p><pre class="codeinput">clear <span class="string">all</span>
 close <span class="string">all</span>
 clc
 
@@ -807,10 +807,10 @@ setAxes(-60, 180, 9, <span class="string">'Time (min)'</span>, <span class="keyw
     0, 3500, 3, <span class="string">'C-peptide (pmol/L)'</span>) <span class="comment">% generate the figure with the proper layout</span>
 legend(<span class="string">'data'</span>,<span class="string">'model'</span>)
 </pre><pre class="codeoutput">Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
-</pre><img vspace="5" hspace="5" src="IncretinModel_sim_15.png" style="width:560px;height:420px;" alt=""> <h2>- Study B4: hyperglicaemic clamp (HGC) with boluses and infusion of GIP at different doses - T2D subjects<a name="13"></a></h2><p>Data from Meier et al., 2004;</p><pre class="codeinput">clear <span class="string">all</span>
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
+</pre><img vspace="5" hspace="5" src="IncretinModel_sim_15.png" alt=""> <h2>- Study B4: hyperglicaemic clamp (HGC) with boluses and infusion of GIP at different doses - T2D subjects<a name="13"></a></h2><p>Data from Meier et al., 2004;</p><pre class="codeinput">clear <span class="string">all</span>
 close <span class="string">all</span>
 clc
 
@@ -860,10 +860,10 @@ setAxes(-60, 180, 9, <span class="string">'Time (min)'</span>, <span class="keyw
     0, 1500, 3, <span class="string">'C-peptide (pmol/L)'</span>) <span class="comment">% generate the figure with the proper layout</span>
 legend(<span class="string">'data'</span>,<span class="string">'model'</span>)
 </pre><pre class="codeoutput">Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
-</pre><img vspace="5" hspace="5" src="IncretinModel_sim_16.png" style="width:560px;height:420px;" alt=""> <h2>- Study B5: hiperglycemic clamp (HGC) with saline, GIP or GLP-1 infusion - NGT subjects<a name="14"></a></h2><p>Data from Knop et al., 2007</p><pre class="codeinput">clear <span class="string">all</span>
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
+</pre><img vspace="5" hspace="5" src="IncretinModel_sim_16.png" alt=""> <h2>- Study B5: hiperglycemic clamp (HGC) with saline, GIP or GLP-1 infusion - NGT subjects<a name="14"></a></h2><p>Data from Knop et al., 2007</p><pre class="codeinput">clear <span class="string">all</span>
 close <span class="string">all</span>
 clc
 
@@ -944,18 +944,18 @@ h=legend(<span class="string">'saline data'</span>,<span class="string">'saline 
 set(h,<span class="string">'Location'</span>,<span class="string">'northwest'</span>)
 title(<span class="string">'NGT'</span>)
 </pre><pre class="codeoutput">Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
-</pre><img vspace="5" hspace="5" src="IncretinModel_sim_17.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_18.png" style="width:400px;height:400px;" alt=""> <h2>- Study B5: hiperglycemic clamp (HGC) with saline, GIP or GLP-1 infusion - T2D subjects<a name="15"></a></h2><p>Data from Knop et al., 2007</p><pre class="codeinput">clear <span class="string">all</span>
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
+</pre><img vspace="5" hspace="5" src="IncretinModel_sim_17.png" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_18.png" alt=""> <h2>- Study B5: hiperglycemic clamp (HGC) with saline, GIP or GLP-1 infusion - T2D subjects<a name="15"></a></h2><p>Data from Knop et al., 2007</p><pre class="codeinput">clear <span class="string">all</span>
 close <span class="string">all</span>
 clc
 
@@ -1036,18 +1036,18 @@ h=legend(<span class="string">'saline data'</span>,<span class="string">'saline 
 set(h,<span class="string">'Location'</span>,<span class="string">'northwest'</span>)
 title(<span class="string">'T2D'</span>)
 </pre><pre class="codeoutput">Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
-</pre><img vspace="5" hspace="5" src="IncretinModel_sim_19.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_20.png" style="width:400px;height:400px;" alt=""> <h2>- Study C1: glucose ramp with saline infusion or GLP1 infusion at different doses - NGT subjects<a name="16"></a></h2><p>Data from Kjems et al., 2003</p><pre class="codeinput">clear <span class="string">all</span>
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
+</pre><img vspace="5" hspace="5" src="IncretinModel_sim_19.png" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_20.png" alt=""> <h2>- Study C1: glucose ramp with saline infusion or GLP1 infusion at different doses - NGT subjects<a name="16"></a></h2><p>Data from Kjems et al., 2003</p><pre class="codeinput">clear <span class="string">all</span>
 close <span class="string">all</span>
 clc
 
@@ -1111,22 +1111,22 @@ h=legend(<span class="string">'NGT data'</span>,<span class="string">'NGT model'
 set(pl,<span class="string">'linewidth'</span>,2)
 set(h,<span class="string">'Location'</span>,<span class="string">'northwest'</span>)
 </pre><pre class="codeoutput">Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
-</pre><img vspace="5" hspace="5" src="IncretinModel_sim_21.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_22.png" style="width:400px;height:400px;" alt=""> <h2>- Study C1: glucose ramp with saline infusion or GLP1 infusion at different doses - T2D subjects<a name="17"></a></h2><p>Data from Kjems et al., 2003</p><pre class="codeinput">clear <span class="string">all</span>
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
+</pre><img vspace="5" hspace="5" src="IncretinModel_sim_21.png" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_22.png" alt=""> <h2>- Study C1: glucose ramp with saline infusion or GLP1 infusion at different doses - T2D subjects<a name="17"></a></h2><p>Data from Kjems et al., 2003</p><pre class="codeinput">clear <span class="string">all</span>
 close <span class="string">all</span>
 clc
 
@@ -1189,22 +1189,22 @@ h=legend(<span class="string">'T2D data'</span>,<span class="string">'T2D model'
 set(pl,<span class="string">'linewidth'</span>,2)
 set(h,<span class="string">'Location'</span>,<span class="string">'northwest'</span>)
 </pre><pre class="codeoutput">Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
-</pre><img vspace="5" hspace="5" src="IncretinModel_sim_23.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_24.png" style="width:400px;height:400px;" alt=""> <h2>- Study D1: OGTT and Intravenous glucose infusion simulating an OGTT with saline, GIP or GLP1 infusion - NGT subjects<a name="18"></a></h2><p>Data from Nauck et al., JCEM 1993</p><pre class="codeinput">clear <span class="string">all</span>
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
+</pre><img vspace="5" hspace="5" src="IncretinModel_sim_23.png" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_24.png" alt=""> <h2>- Study D1: OGTT and Intravenous glucose infusion simulating an OGTT with saline, GIP or GLP1 infusion - NGT subjects<a name="18"></a></h2><p>Data from Nauck et al., JCEM 1993</p><pre class="codeinput">clear <span class="string">all</span>
 close <span class="string">all</span>
 clc
 
@@ -1245,25 +1245,25 @@ cpepmod_IE=struct(<span class="string">'t'</span>,{},<span class="string">'v'</s
     cpepmod_IE(k)=cpepsim(pcp,glu(k+1).t,secmod_IE(k));
 <span class="keyword">end</span>
 </pre><pre class="codeoutput">Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 </pre><p>Plot glucose, calcium, Kincr, secretion - OGTT-like</p><pre class="codeinput">subplot(4,1,1)
 plot(glu(1).t,glu(1).v,<span class="string">'k'</span>)
 setAxes(-30, 220, 6, <span class="string">''</span>, 5, 15, 3, <span class="string">'G (mmol/L)'</span>) <span class="comment">% generate the figure with the proper layout</span>
@@ -1280,7 +1280,7 @@ setAxes(-30, 220, 6, <span class="string">'Time (min)'</span>, <span class="keyw
     0, 500, 3, <span class="string">'S (pmol Kg min^{-1})'</span>) <span class="comment">% generate the figure with the proper layout</span>
 
 titles={<span class="string">'OGTT'</span> <span class="string">'GIP infusion'</span> <span class="string">'GLP-1 infusion'</span> <span class="string">'GIP and GLP-1 infusion'</span>};
-</pre><img vspace="5" hspace="5" src="IncretinModel_sim_25.png" style="width:560px;height:420px;" alt=""> <pre class="codeinput">figure()
+</pre><img vspace="5" hspace="5" src="IncretinModel_sim_25.png" alt=""> <pre class="codeinput">figure()
 <span class="keyword">for</span> k=1:4
 subplot(4,1,1)
 plot(glu(k+1).t,glu(k+1).v,<span class="string">'k'</span>)
@@ -1314,7 +1314,7 @@ plot(cpep(3).t,cpep(3).v,<span class="string">'--b'</span>,cpepmod_IE(2).t,cpepm
 setAxes(-30, 220, 6, <span class="string">'Time (min)'</span>, <span class="keyword">...</span>
     0, 4000, 5, <span class="string">'C-peptide (pmol/L)'</span>) <span class="comment">% generate the figure with the proper layout</span>
 legend(<span class="string">'GIP data'</span>,<span class="string">'GIP model'</span>,<span class="string">'GLP1 data'</span>,<span class="string">'GLP1 model'</span>,<span class="string">'GIP and GLP1 data'</span>,<span class="string">'GIP and GLP1 model'</span>)
-</pre><img vspace="5" hspace="5" src="IncretinModel_sim_26.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_27.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_28.png" style="width:560px;height:420px;" alt=""> <h2>- Study D2: OGTT and Intravenous glucose infusion simulating an OGTT with saline, GIP or GLP1 infusion - T2D subjects<a name="21"></a></h2><p>Data from Lund et al., 2011</p><pre class="codeinput">clear <span class="string">all</span>
+</pre><img vspace="5" hspace="5" src="IncretinModel_sim_26.png" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_27.png" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_28.png" alt=""> <h2>- Study D2: OGTT and Intravenous glucose infusion simulating an OGTT with saline, GIP or GLP1 infusion - T2D subjects<a name="21"></a></h2><p>Data from Lund et al., 2011</p><pre class="codeinput">clear <span class="string">all</span>
 close <span class="string">all</span>
 clc
 
@@ -1355,21 +1355,21 @@ cpepmod_IE=struct(<span class="string">'t'</span>,{},<span class="string">'v'</s
     cpepmod_IE(k)=cpepsim(pcp,glu(k+1).t,secmod_IE(k));
 <span class="keyword">end</span>
 </pre><pre class="codeoutput">Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 Warning: When delay time is set to zero, the transport delay block
-'betavars/tau_k' is automatically set to support direct feedthrough. This may
-cause an algebraic loop. A Memory Block can be used in place of the Transport
-Delay to break the loop 
+'betavars/tau_k' is automatically set to support direct feedthrough.
+This may cause an algebraic loop. A Memory Block can be used in place
+of the Transport Delay to break the loop 
 </pre><p>Plot glucose, calcium, Kincr, secretion - OGTT-like</p><pre class="codeinput">subplot(4,1,1)
 plot(glu(1).t,glu(1).v,<span class="string">'k'</span>)
 setAxes(-10, 170, 7, <span class="string">''</span>, 5, 20, 3, <span class="string">'G (mmol/L)'</span>) <span class="comment">% generate the figure with the proper layout</span>
@@ -1422,7 +1422,7 @@ setAxes(-10, 170, 7, <span class="string">'Time (min)'</span>, <span class="keyw
     0, 3000, 5, <span class="string">'C-peptide (pmol/L)'</span>) <span class="comment">% generate the figure with the proper layout</span>
 legend(<span class="string">'GIP data'</span>,<span class="string">'GIP model'</span>,<span class="string">'GLP1 data'</span>,<span class="string">'GLP1 model'</span>,<span class="string">'GIP and GLP1 data'</span>,<span class="string">'GIP and GLP1 model'</span>)
 </pre><pre class="codeoutput">Warning: Ignoring extra legend entries. 
-</pre><img vspace="5" hspace="5" src="IncretinModel_sim_29.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_30.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_31.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_32.png" style="width:560px;height:420px;" alt=""> <h2>Plot hormone concentration-Kincr relationships<a name="23"></a></h2><pre class="codeinput">clear <span class="string">all</span>
+</pre><img vspace="5" hspace="5" src="IncretinModel_sim_29.png" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_30.png" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_31.png" alt=""> <img vspace="5" hspace="5" src="IncretinModel_sim_32.png" alt=""> <h2>Plot hormone concentration-Kincr relationships<a name="23"></a></h2><pre class="codeinput">clear <span class="string">all</span>
 close <span class="string">all</span>
 clc
 
@@ -1486,7 +1486,7 @@ xlim([0 1000])
 ylim([1 10])
 xlabel(<span class="string">'Hormone concentration (pmol/L)'</span>)
 ylabel(<span class="string">'Kincr'</span>)
-</pre><img vspace="5" hspace="5" src="IncretinModel_sim_33.png" style="width:560px;height:420px;" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015b</a><br></p></div><!--
+</pre><img vspace="5" hspace="5" src="IncretinModel_sim_33.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 %% Code for the beta-cell insulin secretion model incorporating the incretin effect
 % 
