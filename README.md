@@ -45,7 +45,7 @@ rendered HTML and figures are found in the [html](html) directory of the reposit
  
 # List of PubMed studies considered
 
-The list is also provided as an [MS Excel file](PubMed search results.xlsx).
+The following list is also provided in the [Excel format](PubMed%20search%20results.xlsx).
 
 Reference | DOI | Included | Reason | Comment
 -------|----|----|----|----
