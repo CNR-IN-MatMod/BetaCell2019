@@ -17,7 +17,7 @@ We have mathematically described the effects of incretins on cytosolic Ca2+ and 
 
 ## Supplental Material for the paper
 
-The [Supplemental material](SI/Supplemental_Material.pdf) which accompanies the manuscript is provided this repository's `SI` directory (one PDF file).
+The paper's [Supplemental material](SI/Supplemental_Material.pdf) is provided this repository's `SI` directory ([PDF file](SI/Supplemental_Material.pdf)).
 
 
 ## Model structure
