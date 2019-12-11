@@ -12,7 +12,7 @@ For an outline of the study, see *The different mechanisms of action of GIP and 
 
 We have investigated the mechanisms of GIP and GLP-1 action, their impairment in type 2 diabetes and the reason underlying the lack of efficacy of GIP at pharmacological doses, an important unresolved question.
 
-We have mathematically described the effects of incretins on cytosolic Ca2+ and on the glucose mediated amplifying pathway of insulin secretion. Based on experimental data in healthy subjects, we have concluded that GIP and GLP-1 increase insulin secretion rate by a transient Ca2+ increase and by potentiating the amplifying pathway. We found that potentiation of the amplifying pathway, described as an incretin-dependent factor Kincr>1, is key characteristic of GIP and GLP-1 action. 
+We have mathematically described the effects of incretins on cytosolic Ca<sup>2+</sup> and on the glucose mediated amplifying pathway of insulin secretion. Based on experimental data in healthy subjects, we have concluded that GIP and GLP-1 increase insulin secretion rate by a transient Ca<sup>2+</sup> increase and by potentiating the amplifying pathway. We found that potentiation of the amplifying pathway, described as an incretin-dependent factor K<sub>incr</sub> > 1, is key characteristic of GIP and GLP-1 action. 
 
 
 ## Supplemental Material for the paper
@@ -20,7 +20,7 @@ We have mathematically described the effects of incretins on cytosolic Ca2+ and 
 This repository's [SI](SI) directory contains:
 
  * The paper's [Supplemental material](SI/Supplemental_Material.pdf).
- * The list of studies concerning the effect of GIP on insulin secretion retrieved from the PubMed search, in [Excel format](SI/PubMed%20search%20results.xlsx).
+ * The list of studies concerning the effect of GIP on insulin secretion retrieved from the PubMed search, in [PubMed search results.xlsx](SI/PubMed%20search%20results.xlsx) (MS Excel format).
 
 
 
@@ -34,7 +34,7 @@ incorporating the effect of the GIP and GLP-1 incretins.
 
 ## Results
 
-We determined Kincr using data from eight in vivo published studies involving GIP and GLP-1 infusion or endogenous stimulation, in subjects with normal glucose tolerance and type 2 diabetes. We could thus reassess the GIP and GLP-1 effects from heterogeneous studies using a unifying method.  One reaches two main conclusions: 
+We determined K<sub>incr</sub> using data from eight in vivo published studies involving GIP and GLP-1 infusion or endogenous stimulation, in subjects with normal glucose tolerance and type 2 diabetes. We could thus reassess the GIP and GLP-1 effects from heterogeneous studies using a unifying method.  One reaches two main conclusions: 
 
  1. GIP action in type 2 diabetes is impaired (by ~50%) but not abolished, as often postulated; and
  2. the lack of efficacy of GIP at pharmacological doses in type 2 diabetes is not due GIP insensitivity but to the mechanism of GIP action, which, in contrast to GLP-1, presents a saturation already in the upper physiological range, even in healthy subjects.
