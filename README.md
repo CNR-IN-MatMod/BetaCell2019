@@ -17,12 +17,10 @@ We have mathematically described the effects of incretins on cytosolic Ca2+ and 
 
 ## Supplemental Material for the paper
 
-The paper's [Supplemental material](SI/Supplemental_Material.pdf) is provided this repository's `SI` directory ([PDF file](SI/Supplemental_Material.pdf)).
+This repository's [SI](SI) directory contains:
 
-
-## List of PubMed studies concerning the effect of GIP
-
-The list of studies concerning the effect of GIP on insulin secretion, retrieved from the PubMed search, is available in [Excel format](PubMed%20search%20results.xlsx).
+ * The paper's [Supplemental material](SI/Supplemental_Material.pdf).
+ * The list of studies concerning the effect of GIP on insulin secretion retrieved from the PubMed search, in [Excel format](SI/PubMed%20search%20results.xlsx).
 
 
 
