@@ -15,6 +15,11 @@ We have investigated the mechanisms of GIP and GLP-1 action, their impairment in
 We have mathematically described the effects of incretins on cytosolic Ca2+ and on the glucose mediated amplifying pathway of insulin secretion. Based on experimental data in healthy subjects, we have concluded that GIP and GLP-1 increase insulin secretion rate by a transient Ca2+ increase and by potentiating the amplifying pathway. We found that potentiation of the amplifying pathway, described as an incretin-dependent factor Kincr>1, is key characteristic of GIP and GLP-1 action. 
 
 
+## Supplental Material for the paper
+
+The [Supplemental material](SI/Supplemental_Material.pdf) which accompanies the manuscript is provided this repository's `SI` directory (one PDF file).
+
+
 ## Model structure
 
 The model extends [Grespan-Mari's beta-cell model](http://diabetes.diabetesjournals.org/content/67/3/496.abstract) 
