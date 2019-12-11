@@ -24,7 +24,7 @@ This repository's [SI](SI) directory contains:
 
 
 
-# Model structure
+## Model structure
 
 The model extends [Grespan-Mari's beta-cell model](http://diabetes.diabetesjournals.org/content/67/3/496.abstract) 
 incorporating the effect of the GIP and GLP-1 incretins.
