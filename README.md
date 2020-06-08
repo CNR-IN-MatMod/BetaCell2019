@@ -21,6 +21,7 @@ This repository's [SI](SI) directory contains:
 
  * The paper's [Supplemental material](SI/Supplemental_Material.pdf).
  * The list of studies concerning the effect of GIP on insulin secretion retrieved from the PubMed search, in [PubMed search results.xlsx](SI/PubMed%20search%20results.xlsx) (MS Excel format).
+ * A summary of the selection criteria yielding the studies considered, [Search Flow Diagram.pdf](SI/Search%20Flow%20Diagram.pdf), in the form of a [PRISMA](http://www.prisma-statement.org/)-like flow diagram.
 
 
 
