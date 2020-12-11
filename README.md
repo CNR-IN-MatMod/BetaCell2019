@@ -3,9 +3,8 @@
 This repository accompanies Grespan-Mari's 2019 Incretin Model described in the paper:
 
 > E. Grespan, T. Giorgino, A. Natali, E. Ferrannini, A. Mari. *Different mechanisms of GIP
-> and GLP-1 action explain their different therapeutic efficacy in type 2 diabetes*. (Preprint)
-
-For an outline of the study, see *The different mechanisms of action of GIP and GLP-1 explain their different efficacy as therapeutic agents in type 2 diabetes*, [Diabetologia (2018) 61(Suppl 1)](https://doi.org/10.1007/s00125-018-4693-0) and [page 250, abstract #511](https://www.easd.org/virtualmeeting/home.html#!resources/the-different-mechanisms-of-action-of-gip-and-glp-1-explain-their-different-efficacy-as-therapeutic-agents-in-type-2-diabetes).
+> and GLP-1 action explain their different therapeutic efficacy in type 2 diabetes*. Metabolism,
+Volume 114, 2021, 154415, [doi:10.1016/j.metabol.2020.154415](https://doi.org/10.1016/j.metabol.2020.154415).
 
 
 ## Rationale
@@ -22,7 +21,6 @@ This repository's [SI](SI) directory contains:
  * The paper's [Supplemental material](SI/Supplemental_Material.pdf).
  * The list of studies concerning the effect of GIP on insulin secretion retrieved from the PubMed search, in [PubMed search results.xlsx](SI/PubMed%20search%20results.xlsx) (MS Excel format).
  * The flow diagram displaying the selection criteria yielding the studies considered, [Search Flow Diagram.pdf](SI/Search%20Flow%20Diagram.pdf), formatted in analogy to the *Preferred Reporting Items for Systematic Reviews and Meta-Analyses* ([PRISMA](http://www.prisma-statement.org/)) guidelines.
-
 
 
 ## Model structure
@@ -47,8 +45,11 @@ This code reproduces the paper's figures via Matlab's "publish" feature,
 which renders an HTML file with inline comments and figures (tested in Matlab 2015b). The
 rendered HTML and figures are found in the [html](html) directory of the repository. They may be previewed online
  [here](https://htmlpreview.github.io/?https://github.com/CNR-IN-MatMod/BetaCell2019/blob/master/html/IncretinModel_sim.html).
- 
- 
+
+
+## Other publications
+
+For other takes on the study, see also the EASD poster *The different mechanisms of action of GIP and GLP-1 explain their different efficacy as therapeutic agents in type 2 diabetes*, [Diabetologia (2018) 61(Suppl 1)](https://doi.org/10.1007/s00125-018-4693-0) and on [page 250, abstract #511](https://www.easd.org/virtualmeeting/home.html#!resources/the-different-mechanisms-of-action-of-gip-and-glp-1-explain-their-different-efficacy-as-therapeutic-agents-in-type-2-diabetes).
 
 
 
